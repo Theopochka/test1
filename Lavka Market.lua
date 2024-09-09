@@ -1429,7 +1429,7 @@ themes = {
         end
     },
     {
-        name = u8'Тёмная',
+        name = 'Тёмная',
 		func = function()
             imgui.SwitchContext()
             
