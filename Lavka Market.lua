@@ -333,16 +333,28 @@ BindArkt95 = false,
 BindArkt96 = false,
 BindArkt97 = false,
 BindArkt98 = false,
-        spawn = "[{\"id\": 0, \"spawn\": \"РџРѕСЃР»РµРґРЅРµРµ РјРµСЃС‚Рѕ РІС‹С…РѕРґР°\" },{\"id\": 1, \"spawn\": \"РЎС‚Р°РЅРґР°СЂС‚РЅС‹Р№ СЃРїР°РІРЅ\" }]", 
-        spawn_use = 0,
-    },  
-    autoreconnect = {
-         onBanned = false,
-        onPassword = false,
-        onKicked = false,
-        onRejected = false,
-        delay
-        spawn = "[{\"id\": 0, \"spawn\": \"Последнее место выхода\" },{\"id\": 1, \"spawn\": \"Стандартный спавн\" }]", 
+BindArkt99 = false,
+BindArkt100 = false,
+Lavkaaiki34b = false,
+Lavkaaikib = false,
+AutoReconnect = false,      
+},
+
+eat = {
+    autoeat = false,
+    eatchoice = 0,
+},
+cfgtheme = {
+    theme = 0
+},
+config = {  
+        AutoLogin = false,
+    },
+autologin =
+    {
+        nickname = "Your_Nickname",
+        password = "yourpassword",
+        spawn = "[{\"id\": 0, \"spawn\": \"Р В РЎСџР В РЎвЂўР РЋР С“Р В Р’В»Р В Р’ВµР В РўвЂ�Р В Р вЂ¦Р В Р’ВµР В Р’Вµ Р В РЎВ�Р В Р’ВµР РЋР С“Р РЋРІР‚С™Р В РЎвЂў Р В Р вЂ Р РЋРІР‚в„–Р РЋРІР‚В¦Р В РЎвЂўР В РўвЂ�Р В Р’В°\" },{\"id\": 1, \"spawn\": \"Р В Р Р‹Р РЋРІР‚С™Р В Р’В°Р В Р вЂ¦Р В РўвЂ�Р В Р’В°Р РЋР вЂљР РЋРІР‚С™Р В Р вЂ¦Р РЋРІР‚в„–Р В РІвЂћвЂ“ Р РЋР С“Р В РЎвЂ”Р В Р’В°Р В Р вЂ Р В Р вЂ¦\" }]", 
         spawn_use = 0,
     },  
     autoreconnect = {
@@ -358,7 +370,8 @@ if not doesDirectoryExist(getWorkingDirectory()..'\\config') then print('Creatin
 if not doesFileExist('monetloader/config/'..iniFile) then print('Creating/updating the .ini file') inicfg.save(ini, iniFile) end
 
 local lmPath = "Lavka Market.lua"
-local lmUrl = "https://raw.https://raw.githubusercontent.com/Theopochka/test/main/Lavka%20Market.luaunction downloadFile(url, path)
+local lmUrl = "https://raw.githubusercontent.com/Theopochka/test1/main/Lavka%20Market.lua"
+function downloadFile(url, path)
 
     local response = {}
     local _, status_code, _ = http.request{
@@ -764,7 +777,7 @@ end
     if imgui.Button('Обновить(возможно зависание игры на 10-15 секунд)') then
         updateScript(lmUrl, lmPath)
     end
-    imgui.Hint("Кнопку Обновить, не кликать без нужд, если обнов нету скрипту пиздец")
+    imgui.Hint("Кнопку Обновить, не кликать без нужд, если обнова нету скрипту пиздец")
 
 	    elseif tab == 4 then
 imgui.CenterText('Version: ' ..VersionV)
@@ -1416,7 +1429,7 @@ themes = {
         end
     },
     {
-        name = 'Тёмная',
+        name = u8'Тёмная',
 		func = function()
             imgui.SwitchContext()
             
@@ -1459,32 +1472,6 @@ themes = {
             imgui.GetStyle().Colors[imgui.Col.TabActive]              = imgui.ImVec4(0.30, 0.30, 0.30, 1.00)
             imgui.GetStyle().Colors[imgui.Col.TabUnfocused]           = imgui.ImVec4(0.07, 0.10, 0.15, 0.97)
             imgui.GetStyle().Colors[imgui.Col.TabUnfocusedActive]     = imgui.ImVec4(0.14, 0.26, 0.42, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.PlotLines]              = imgui.ImVec4(0.61, 0.61, 0.61, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.PlotLinesHovered]       = imgui.ImVec4(1.00, 0.43, 0.35, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.PlotHistogram]          = imgui.ImVec4(0.90, 0.70, 0.00, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.PlotHistogramHovered]   = imgui.ImVec4(1.00, 0.60, 0.00, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.TextSelectedBg]         = imgui.ImVec4(1.00, 0.00, 0.00, 0.35)
-            imgui.GetStyle().Colors[imgui.Col.DragDropTarget]         = imgui.ImVec4(1.00, 1.00, 0.00, 0.90)
-            imgui.GetStyle().Colors[imgui.Col.NavHighlight]           = imgui.ImVec4(0.26, 0.59, 0.98, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.NavWindowingHighlight]  = imgui.ImVec4(1.00, 1.00, 1.00, 0.70)
-            imgui.GetStyle().Colors[imgui.Col.NavWindowingDimBg]      = imgui.ImVec4(0.80, 0.80, 0.80, 0.20)
-            imgui.GetStyle().Colors[imgui.Col.ModalWindowDimBg]       = imgui.ImVec4(0.00, 0.00, 0.00, 0.70)
-        end
-    }
-}26, 0.42, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.PlotLines]              = imgui.ImVec4(0.61, 0.61, 0.61, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.PlotLinesHovered]       = imgui.ImVec4(1.00, 0.43, 0.35, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.PlotHistogram]          = imgui.ImVec4(0.90, 0.70, 0.00, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.PlotHistogramHovered]   = imgui.ImVec4(1.00, 0.60, 0.00, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.TextSelectedBg]         = imgui.ImVec4(1.00, 0.00, 0.00, 0.35)
-            imgui.GetStyle().Colors[imgui.Col.DragDropTarget]         = imgui.ImVec4(1.00, 1.00, 0.00, 0.90)
-            imgui.GetStyle().Colors[imgui.Col.NavHighlight]           = imgui.ImVec4(0.26, 0.59, 0.98, 1.00)
-            imgui.GetStyle().Colors[imgui.Col.NavWindowingHighlight]  = imgui.ImVec4(1.00, 1.00, 1.00, 0.70)
-            imgui.GetStyle().Colors[imgui.Col.NavWindowingDimBg]      = imgui.ImVec4(0.80, 0.80, 0.80, 0.20)
-            imgui.GetStyle().Colors[imgui.Col.ModalWindowDimBg]       = imgui.ImVec4(0.00, 0.00, 0.00, 0.70)
-        end
-    }
-}ec4(0.14, 0.26, 0.42, 1.00)
             imgui.GetStyle().Colors[imgui.Col.PlotLines]              = imgui.ImVec4(0.61, 0.61, 0.61, 1.00)
             imgui.GetStyle().Colors[imgui.Col.PlotLinesHovered]       = imgui.ImVec4(1.00, 0.43, 0.35, 1.00)
             imgui.GetStyle().Colors[imgui.Col.PlotHistogram]          = imgui.ImVec4(0.90, 0.70, 0.00, 1.00)
