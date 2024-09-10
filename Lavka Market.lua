@@ -778,7 +778,6 @@ end
     if imgui.Button('Обновить(возможно зависание игры на 10-15 секунд)') then
         updateScript(lmUrl, lmPath)
     end
-    imgui.Hint("Кнопку Обновить, не кликать без нужд, если обновы нету скрипту пиздец")
 
 	    elseif tab == 4 then
 imgui.CenterText('Version: ' ..VersionV)
