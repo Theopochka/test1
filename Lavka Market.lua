@@ -1,5 +1,5 @@
 script_name('Lavka Market')
-script_version('2.1')
+script_version('2.2')
 script_author('Theopka')
 
 local faicons = require('fAwesome6')
@@ -460,7 +460,7 @@ local items = imgui.new['const char*'][#method](method)
 local theme = new.int(ini.cfgtheme.theme)
 local themesList, stylesList = {}, {}
 
-local VersionV = '2.1'
+local VersionV = '2.2'
 
 function iniSave()
 	ini.cfgtheme.theme = theme[0]
@@ -618,7 +618,7 @@ end
                 cfg_save()
             end
         end
-        if imgui.Checkbox(u8:decode'Автореконнект при закрытии соединения с сервером', onKicked) then
+        if imgui.Checkbox('Автореконнект при закрытии соединения с сервером', onKicked) then
             if not ini.cfg.AutoReconnect then
                 onKicked[0] = not onKicked[0]
                 msg(u8:decode"Автореконнект выключен. Редактирование также отключено")
@@ -683,7 +683,7 @@ imgui.OnFrame(function() return CentralGlMenu[0] end,
   function(player)
     imgui.SetNextWindowPos(imgui.ImVec2(sizeX / 2, sizeY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
     imgui.SetNextWindowSize(imgui.ImVec2(700, 350), imgui.Cond.FirstUseEver)
-    imgui.Begin('Lavka Market || 2.1', CentralGlMenu)
+    imgui.Begin('Lavka Market || 2.2', CentralGlMenu)
 
  
     if Param then
@@ -813,9 +813,9 @@ imgui.Text('')
                 ini.cfg['BindArkt' .. i] = boolVariables[i][0]
             end 
             imgui.InputTextWithHint('##se_' .. i, 'Например: Платиновая рулетка', variables[i].se, 255)
-            ini.cfg['se' .. i] = u8:decode(str(variables[i].se))
+            ini.cfg['se' .. i] = u8(str(variables[i].se))
             imgui.InputTextWithHint('##i_' .. i, 'Например: "1, 500000"', variables[i].i, 255)
-            ini.cfg['i' .. i] = u8:decode(str(variables[i].i))
+            ini.cfg['i' .. i] = u8(str(variables[i].i))
         imgui.EndChild()
     end
     cfg_save() -- Сохранение значений вынесено за пределы цикла
