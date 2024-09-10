@@ -341,7 +341,7 @@ AutoReconnect = false,
 },
 
 eat = {
-    autoeat = false,
+    autoeat = true,
     eatchoice = 0,
 },
 cfgtheme = {
@@ -452,7 +452,7 @@ end
 local activation = new.char[255]((ini.cfg.activation))
 local activated = false
 
-local eat = new.bool(ini.eat.autoeat)
+local autoeat = new.bool(ini.eat.autoeat)
 local eat_choice = new.int(ini.eat.eatchoice)
 local method = {'Чипсы', 'Оленина', 'Рыба'}
 local items = imgui.new['const char*'][#method](method)
@@ -698,7 +698,7 @@ imgui.OnFrame(function() return CentralGlMenu[0] end,
 if imgui.Button(faicons("SERVER") .. ' Лог операций', imgui.ImVec2(200, 50)) then tab = 1 end
 if imgui.Button(faicons("SHOP") .. ' Скуп', imgui.ImVec2(200, 50)) then tab = 5 end
 if imgui.Button(faicons("GEAR") .. ' Настройки', imgui.ImVec2(200, 50)) then tab = 2 end
-if imgui.Button(faicons("USER") .. ' Информация', imgui.ImVec2(200, 50)) then tab = 4 end
+if imgui.Button(faicons("LIST") .. ' Информация', imgui.ImVec2(200, 50)) then tab = 4 end
 
     imgui.SetCursorPos(imgui.ImVec2(215, 28))
 if imgui.BeginChild('Name', imgui.ImVec2(), true) then
@@ -755,21 +755,22 @@ end
 imgui.InputTextWithHint("Активация", "Без слеша!", activation, 256)
 imgui.SameLine()
 	if imgui.Button(" Сохранить") then
-		ini.cfg.activation = u8:decode(str(activation))
+		ini.cfg.activation = u8(str(activation))
 		cfg_save()
 		msg(u8:decode"Сохранено! Активация - "..ini.cfg.activation, -1)
 		script_reload()
 	end
 imgui.Separator()
-if imgui.Checkbox("Автоeда", eat) then
-    activated = not activated
+if imgui.Checkbox("Автоeда", autoeat) then
+ini.eat.autoeat = autoeat[0]
+cfg_save()
 end
-if activated then
+   if autoeat[0] then
     if imgui.Combo("Выберите нужную еду", eat_choice, items, #method) then
         ini.eat.eatchoice = eat_choice[0]
         cfg_save()
     end
-end 
+end
 	imgui.Separator()
 	if imgui.Button(" Перезагрузить") then script_reload() end
 	imgui.SameLine()
@@ -777,11 +778,11 @@ end
     if imgui.Button('Обновить(возможно зависание игры на 10-15 секунд)') then
         updateScript(lmUrl, lmPath)
     end
-    imgui.Hint("Кнопку Обновить, не кликать без нужд, если обнова нету скрипту пиздец")
+    imgui.Hint("Кнопку Обновить, не кликать без нужд, если обновы нету скрипту пиздец")
 
 	    elseif tab == 4 then
 imgui.CenterText('Version: ' ..VersionV)
-imgui.CenterText('Author: Theopka')
+imgui.CenterText(Faicons("USER") .. 'Author: Theopka')
 				if imgui.Button(faicons("BELL") .. " Перейти в ТГК", imgui.ImVec2(-1, 25)) then openLink("https://t.me/TheopkaStudio") end
 				imgui.Separator()
 imgui.CenterText(' Команды')
