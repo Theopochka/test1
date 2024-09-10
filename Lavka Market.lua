@@ -802,7 +802,7 @@ sampSendDialogResponse (26552, 1, 0, nil)
 sampSendDialogResponse (26555, 1, 0, ini.cfg['i' .. i])
 sampSendDialogResponse(3060, 1, 0, ini.cfg['i' .. i])
                 end
-                wait(1111)
+                wait(2000)
             end
         end)
 end
