@@ -781,7 +781,7 @@ end
 
 	    elseif tab == 4 then
 imgui.CenterText('Version: ' ..VersionV)
-imgui.CenterText(Faicons("USER") .. 'Author: Theopka')
+imgui.CenterText('Author: Theopka')
 				if imgui.Button(faicons("BELL") .. " Перейти в ТГК", imgui.ImVec2(-1, 25)) then openLink("https://t.me/TheopkaStudio") end
 				imgui.Separator()
 imgui.CenterText(' Команды')
